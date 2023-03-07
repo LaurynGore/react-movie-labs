@@ -17,32 +17,31 @@ const formControl = {
   backgroundColor: "rgb(255, 255, 255)",
 };
 
-useEffect(() => {
-  fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=" + process.env.REACT_APP_TMDB_KEY)
-    .then((res) => res.json())
-    .then((json) => {
-      // console.log(json.genres)
-      return json.genres;
-    })
-    .then((apiGenres) => {
-      setGenres([genres[0], ...apiGenres]);
-    });
-  // eslint-disable-next-line
-}, []);
-
-const handleChange = (e, type, value) => {
-  e.preventDefault();
-  // Completed later
-};
-const handleTextChange = (e) => {
-  handleChange(e, "name", e.target.value);
-};
-const handleGenreChange = (e) => {
-  handleChange(e, "genre", e.target.value);
-};
-
 export default function FilterMoviesCard(props) {
   const [genres, setGenres] = useState([{ id: "0", name: "All" }]);
+  useEffect(() => {
+    fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=" + process.env.REACT_APP_TMDB_KEY)
+      .then((res) => res.json())
+      .then((json) => {
+        // console.log(json.genres)
+        return json.genres;
+      })
+      .then((apiGenres) => {
+        setGenres([genres[0], ...apiGenres]);
+      });
+    // eslint-disable-next-line
+  }, []);
+
+  const handleChange = (e, type, value) => {
+    e.preventDefault();
+    // Completed later
+  };
+  const handleTextChange = (e) => {
+    handleChange(e, "name", e.target.value);
+  };
+  const handleGenreChange = (e) => {
+    handleChange(e, "genre", e.target.value);
+  };
 
   return (
     <Card
