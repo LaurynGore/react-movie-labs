@@ -1,9 +1,10 @@
 import React from "react";
-import { getMovies, getMoviesUpcomming } from "../api/tmdb-api";
+import { getMoviesUpcomming } from "../api/tmdb-api";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const Upcomming = (props) => {
   const { data, error, isLoading, isError } = useQuery("discover", getMoviesUpcomming);
@@ -28,6 +29,7 @@ const Upcomming = (props) => {
       movies={movies}
       action={(movie) => {
         return <AddToFavoritesIcon movie={movie} />;
+        return <PlaylistAddIcon	 movie={movie} />;
       }}
     />
   );

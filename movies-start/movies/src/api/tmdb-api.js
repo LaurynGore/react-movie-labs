@@ -76,3 +76,40 @@ export const getMovieReviews = (id) => {
       return json.results;
     });
 };
+
+export const getTVShows = () => {
+  return fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const getTVImages = ({ queryKey }) => {
+  const [, idPart] = queryKey;
+  const { id } = idPart;
+  return fetch(`https://api.themoviedb.org/3/tv/popular${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const getTVReviews = (id) => {
+  return fetch(`https://api.themoviedb.org/3//tv/popular${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`)
+    .then((res) => res.json())
+    .then((json) => {
+      // console.log(json.results);
+      return json.results;
+    });
+};
