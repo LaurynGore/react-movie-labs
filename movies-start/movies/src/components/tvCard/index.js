@@ -7,33 +7,33 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-//import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
-//import IconButton from "@mui/material/IconButton";
+import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import img from "../../images/film-poster-placeholder.png";
-//import Avatar from "@mui/material/Avatar";
+import Avatar from "@mui/material/Avatar";
 //import FilterUpcommingCard from "../filterUpcommingCard";
 
 export default function tvCard(props) {
   const tv = props.tv;
   console.log(tv);
-  // const handleAddToFavorite = (e) => {
-  //   e.preventDefault();
-  //   props.selectFavorite(tv.id);
-  // };
+   const handleAddToFavorite = (e) => {
+     e.preventDefault();
+     props.selectFavorite(tv.id);
+   };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        // avatar={
-        //   tv.favorite ? (
-        //     <Avatar sx={{ backgroundColor: "red" }}>
-        //       <FavoriteIcon />
-        //     </Avatar>
-        //   ) : null
-        // }
+        avatar={
+          tv.favorite ? (
+            <Avatar sx={{ backgroundColor: "red" }}>
+              <FavoriteIcon />
+            </Avatar>
+          ) : null
+        }
         title={
           <Typography variant="h5" component="p">
             {tv.name}{" "}
@@ -59,9 +59,9 @@ export default function tvCard(props) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        {/* <IconButton aria-label="add to favorites" onClick={handleAddToFavorite}>
+        <IconButton aria-label="add to favorites" onClick={handleAddToFavorite}>
           <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton> */}
+        </IconButton>
         <Link to={`/movies/${tv.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...

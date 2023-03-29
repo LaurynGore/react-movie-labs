@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getTVShow } from "../../api/tmdb-api";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -8,7 +9,7 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-//import MovieReviews from "../movieReviews";
+import TvReviews from "../tvReviews";
 
 const root = {
   display: "flex",
@@ -20,7 +21,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const TvDetails = ({ movie }) => {
+const TvDetails = ({ tv }) => {
   // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -31,24 +32,24 @@ const TvDetails = ({ movie }) => {
       </Typography>
 
       <Typography variant="h6" component="p">
-        {movie.overview}
+        {tv.overview}
       </Typography>
 
       <Paper component="ul" sx={{ ...root }}>
         <li>
           <Chip label="Genres" sx={{ ...chip }} color="primary" />
         </li>
-        {movie.genres.map((g) => (
+        {tv.genres.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} sx={{ ...chip }} />
           </li>
         ))}
       </Paper>
       <Paper component="ul" sx={{ ...root }}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip icon={<MonetizationIcon />} label={`${movie.revenue.toLocaleString()}`} />
-        <Chip icon={<StarRate />} label={`${movie.vote_average} (${movie.vote_count}`} />
-        <Chip label={`Released: ${movie.release_date}`} />
+        <Chip icon={<AccessTimeIcon />} label={`${tv.runtime} min.`} />
+        <Chip icon={<MonetizationIcon />} label={`${tv.revenue.toLocaleString()}`} />
+        <Chip icon={<StarRate />} label={`${tv.vote_average} (${tv.vote_count}`} />
+        <Chip label={`Released: ${tv.release_date}`} />
       </Paper>
       <Fab
         color="secondary"
@@ -64,10 +65,10 @@ const TvDetails = ({ movie }) => {
         Reviews
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
+        <TvReviews tv={tv} />
       </Drawer>
 
     </>
   );
 };
-export default MovieDetails;
+export default TvDetails;
