@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "../headerUpcomming";
-import FilterCard from "../filterMoviesCard";
+import Header from "../headerTvList";
+import FilterTv from "../filterTv";
 import TvList from "../tvList";
 import Grid from "@mui/material/Grid";
 
@@ -29,7 +29,7 @@ function TvPageTemplate({ tv, title, selectFavorite }) {
       </Grid>
       <Grid item container spacing={5}>
         <Grid key="find" item xs={12} sm={6} md={4} lg={3} xl={2}>
-          <FilterCard onUserInput={handleChange} titleFilter={nameFilter} genreFilter={genreFilter} />
+          <FilterTv onUserInput={handleChange} titleFilter={nameFilter} genreFilter={genreFilter} />
         </Grid>
         <TvList selectFavorite={selectFavorite} tv={displayedTV}></TvList>
       </Grid>

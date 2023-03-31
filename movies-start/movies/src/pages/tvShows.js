@@ -4,6 +4,7 @@ import PageTemplate from "../components/templateTVShows";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
+
 //import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
 const TVShows = (props) => {
@@ -19,9 +20,9 @@ const TVShows = (props) => {
   const tv = data.results;
   console.log(tv);
   // Redundant, but necessary to avoid app crashing.
-  // const favorites = tv.filter((m) => m.favorite);
-  // localStorage.setItem("favorites", JSON.stringify(favorites));
-  // const addToFavorites = (tvId) => true;
+  const favorites = tv.filter((m) => m.favorite);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  const addToFavorites = (tvId) => true;
 
   return (
     <PageTemplate
@@ -29,7 +30,6 @@ const TVShows = (props) => {
       tv={tv}
       action={(tv) => {
         return <AddToFavoritesIcon tv={tv} />;
-        //return <PlaylistAddIcon tv={tv} />;
       }}
     />
   );

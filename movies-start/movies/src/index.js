@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage";
+import TvPage from "./pages/tvDetailsPage";
 import MoviesContextProvider from "./contexts/moviesContext";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
@@ -12,6 +13,7 @@ import AddMovieReviewPage from "./pages/addMovieReviewPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import TVShows from "./pages/tvShows";
+import FavoriteTvPage from "./pages/favoriteTvPage"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,10 +36,11 @@ const App = () => {
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/tv/:id" element={<TvPage />} />
             <Route path="/movies/upcomming" element={<Upcomming />} />
             <Route path="/movies/tvShows" element={<TVShows />} />
             <Route path="/reviews/form" element={<AddMovieReviewPage />} />
-
+            <Route path="/movies/tvfavorites" element={<FavoriteTvPage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </MoviesContextProvider>

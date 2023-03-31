@@ -91,7 +91,9 @@ export const getTVShows = () => {
 };
 
 export const getTVShow = (args) => {
-  return fetch(`https://api.themoviedb.org/3/tv/{tv_id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
+  const [, idPart] = args.queryKey;
+  const { id } = idPart;
+  return fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -106,7 +108,7 @@ export const getTVShow = (args) => {
 export const getTVImages = ({ queryKey }) => {
   const [, idPart] = queryKey;
   const { id } = idPart;
-  return fetch(`https://api.themoviedb.org/3/tv/popular${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`)
+  return fetch(`https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -119,7 +121,7 @@ export const getTVImages = ({ queryKey }) => {
 };
 
 export const getTVReviews = (id) => {
-  return fetch(`https://api.themoviedb.org/3//tv/popular${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`)
+  return fetch(`https://api.themoviedb.org/3//tv/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`)
     .then((res) => res.json())
     .then((json) => {
       // console.log(json.results);

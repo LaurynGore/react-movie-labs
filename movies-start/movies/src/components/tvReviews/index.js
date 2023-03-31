@@ -11,13 +11,14 @@ import { getTVReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
 import { Tv } from "@mui/icons-material";
 
-export default function TVReviews({ movie }) {
+export default function TVReviews({ tv }) {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    getTVReviews(Tv.id).then((reviews) => {
+    getTVReviews(tv.id).then((reviews) => {
       setReviews(reviews);
     });
+    console.log(reviews)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
