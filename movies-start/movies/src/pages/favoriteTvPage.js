@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/templateTVShows";
 import { TvContext } from "../contexts/tvContext";
 import { useQueries } from "react-query";
 import { getTVShow } from "../api/tmdb-api";
