@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TvContext } from "../../contexts/tvContext";
 import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -15,12 +16,19 @@ import Grid from "@mui/material/Grid";
 import img from "../../images/film-poster-placeholder.png";
 import Avatar from "@mui/material/Avatar";
 
-export default function tvCard(props) {
-  const tv = props.tv;
+export default function TvCard({ tv, action }) {
+  const { favorites, addToFavorites } = useContext(TvContext);
+
+  if (favorites.find((id) => id === tv.id)) {
+    tv.favorite = true;
+  } else {
+    tv.favorite = false;
+  }
+
   //console.log(tv);
   const handleAddToFavorite = (e) => {
     e.preventDefault();
-    props.selectFavorite(tv.id);
+    addToFavorites(tv);
   };
 
   return (

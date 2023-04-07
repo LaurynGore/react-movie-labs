@@ -5,6 +5,7 @@ export const TvContext = React.createContext(null);
 const TvContextProvider = (props) => {
   const [favorites, setFavorites] = useState([]);
   const [myReviews, setMyReviews] = useState({});
+
   const addToFavorites = (tv) => {
     let newFavorites = [];
     if (!favorites.includes(tv.id)) {
@@ -14,6 +15,7 @@ const TvContextProvider = (props) => {
     }
     setFavorites(newFavorites);
   };
+
   const addReview = (tv, review) => {
     setMyReviews({ ...myReviews, [tv.id]: review });
   };
