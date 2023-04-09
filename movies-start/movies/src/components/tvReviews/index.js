@@ -9,7 +9,6 @@ import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
 import { getTVReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
-import { Tv } from "@mui/icons-material";
 
 export default function TVReviews({ tv }) {
   const [reviews, setReviews] = useState([]);
@@ -44,7 +43,7 @@ export default function TVReviews({ tv }) {
                   to={`/reviews/${r.id}`}
                   state={{
                     review: r,
-                    tv: Tv,
+                    tv: tv,
                   }}
                 >
                   Full Review
