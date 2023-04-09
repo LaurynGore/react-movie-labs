@@ -11,7 +11,6 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
-//import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import img from "../../images/film-poster-placeholder.png";
 import Avatar from "@mui/material/Avatar";
@@ -42,7 +41,7 @@ export default function MovieCard({ movie, action }) {
           ) : null
         }
         title={
-          <Typography variant="h5" component="p">
+          <Typography fontSize="large" variant="h5" component="p">
             {movie.title}{" "}
           </Typography>
         }
