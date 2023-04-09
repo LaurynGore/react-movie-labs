@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
@@ -44,10 +43,8 @@ const TvDetails = ({ tv }) => {
         ))}
       </Paper>
       <Paper component="ul" sx={{ ...root }}>
-        <Chip icon={<AccessTimeIcon />} label={`${tv.runtime} min.`} />
-        {/* <Chip icon={<MonetizationIcon />} label={`${movie.revenue.toLocaleString()}`} /> */}
         <Chip icon={<StarRate />} label={`${tv.vote_average} (${tv.vote_count}`} />
-        <Chip label={`Released: ${tv.release_date}`} />
+        <Chip label={`Released: ${tv.first_air_date}`} />
       </Paper>
       <Fab
         color="secondary"
