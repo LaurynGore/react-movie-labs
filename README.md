@@ -4,14 +4,13 @@ Name: Lauryn Gore
 
 ## Overview.
 
-[A brief statement on the content of this repository.]
+An app that lists tv shows and movies
 
 ### Features.
 + Popular Tv Show Page
 + Tv Details Page
 + Favourite Tv Show Page
-+ etc
-+ etc
++ Upcomming Movies Page
 
 ## Setup requirements.
 
@@ -22,16 +21,17 @@ none
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
 
 e.g.
-+ Discover list of tv shows - discover/tv
-+ Tv details - movie/:id
++ List of popular tv shows - tv/shows
++ Tv details - tv/:id
++ Tv reviews - tv/reviews
+
 
 ## Routing.
 
 [ List the __new routes__ supported by your app and state the associated page.]
 
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
++ /tv/:id - displays all tv shows.
++ /tv/shows- displays a particular tv show.
++ /tv/favorites - displays tv favourites.
 
 
